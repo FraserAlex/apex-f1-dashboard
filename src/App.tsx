@@ -147,7 +147,9 @@ export default function App() {
             <div className="hero-meta">
               <div className="meta-label">LATEST SESSION</div>
               <div className="meta-title">
-                {loading ? "Loading session…" : session?.meeting_name ?? "No session found"}
+                {loading
+                  ? "Loading session…"
+                  : data?.meeting?.meeting_name ?? session?.location ?? "Session details unavailable"}
               </div>
               <div className="meta-subtitle">
                 {session

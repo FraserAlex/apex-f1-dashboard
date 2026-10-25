@@ -21,4 +21,4 @@ The Firebase client is initialized in `src/lib/firebase.ts`; `auth` and `db` are
 
 ## OpenF1 integration
 
-The API client in `src/lib/openf1.ts` fetches the latest session, then its drivers, laps, and weather. The leaderboard ranks drivers by their fastest non-pit-out lap. Add other endpoints such as `/positions`, `/intervals`, `/pit`, `/race_control`, and `/team_radio` there as your project grows.
+The API client in `src/lib/openf1.ts` fetches the latest session, its meeting name, then its drivers, laps, and weather. Requests are paced to reduce rate limiting, and transient HTTP errors such as `429` are retried with backoff. If meeting details are unavailable, the dashboard falls back to the session location. The leaderboard ranks drivers by their fastest non-pit-out lap. Add other endpoints such as `/positions`, `/intervals`, `/pit`, `/race_control`, and `/team_radio` there as your project grows.
